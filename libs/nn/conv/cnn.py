@@ -8,7 +8,7 @@ from tensorflow.keras import backend as K
 
 class CNN:
     @staticmethod
-    def build(width, height, depth, classes):
+    def build(width:int, height:int, depth:int, classes:int):
         inputShape = (height, width, depth)
 
         # if we are using "channels first", update the input shape
