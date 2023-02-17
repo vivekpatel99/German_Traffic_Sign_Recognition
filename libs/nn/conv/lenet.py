@@ -21,7 +21,8 @@ class LeNet:
             Rescaling(1./255,input_shape=inputShape),
 
             # first set of CONV => RELU => POOL layers
-            Conv2D(20, (5, 5), padding='same',  activation='relu'),
+            Conv2D(20, (5, 5), padding='same',  activation='relu'),#,input_shape=inputShape),
+
             MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
 
             # second set of CONV => RELU => POOL layers

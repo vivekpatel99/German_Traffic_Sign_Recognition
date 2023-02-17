@@ -23,7 +23,8 @@ class SimpleDatasetLoader:
         for i, (label, imagePath) in enumerate(zip(class_id, paths)):
 
             image = cv2.imread(imagePath)
-
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            
             # check to see if preprocessors are not None
             if self.preprocessors is not None:
                 # loop over the preprocessor and apply each to the image
