@@ -6,7 +6,7 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras import backend as K
 
 
-class CNN:
+class LeNet:
     @staticmethod
     def build(width:int, height:int, depth:int, classes:int):
         inputShape = (height, width, depth)

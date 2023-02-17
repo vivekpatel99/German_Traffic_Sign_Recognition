@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import os
-
+import pandas  as df
 
 class SimpleDatasetLoader:
     def __init__(self, preprocessors: list = None) -> None:
@@ -13,19 +13,16 @@ class SimpleDatasetLoader:
         if self.preprocessors is None:
             self.preprocessors = []
 
-    def load(self, imagePaths: str, verbose=-1) -> tuple:
+    def load(self, class_id:df.Series, paths:df.Series, verbose=-1) -> tuple:
         """ intialize the list of features and labels
         """
         data = []
         labels = []
 
         # loop over the input images
-        for i, imagePath in enumerate(imagePaths):
-            # load the image and extract the class label assuming
-            # that our path has the following  format
-            # /path/to/dataset/{class}/{image}.jpg
+        for i, (label, imagePath) in enumerate(zip(class_id, paths)):
+
             image = cv2.imread(imagePath)
-            label = int(imagePath.split(os.path.sep)[-2])  # class name
 
             # check to see if preprocessors are not None
             if self.preprocessors is not None:
@@ -40,7 +37,8 @@ class SimpleDatasetLoader:
 
             # show an update every 'verbose' images
             if verbose > 0 and i > 0 and (i + 1) % verbose == 0:
-                print(f"[INFO] processed {i + 1}/{len(imagePaths)}")
+                print(f"[INFO] processed {i + 1}/{len(paths)}")
 
         # return a tuple of the data and labels
         return (np.array(data), np.array(labels))
+
