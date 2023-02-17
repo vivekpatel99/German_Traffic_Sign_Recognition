@@ -1,5 +1,5 @@
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D
+from tensorflow.keras.layers import Conv2D, Rescaling
 from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dense
@@ -17,8 +17,11 @@ class CNN:
 
         # initialize the model
         return Sequential([
+
+            Rescaling(1./255,input_shape=inputShape),
+
             # first set of CONV => RELU => POOL layers
-            Conv2D(20, (5, 5), padding='same', input_shape=inputShape, activation='relu'),
+            Conv2D(20, (5, 5), padding='same',  activation='relu'),
             MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
 
             # second set of CONV => RELU => POOL layers
