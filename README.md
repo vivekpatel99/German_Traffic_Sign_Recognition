@@ -1,5 +1,5 @@
 # German_Traffic_Sign_Recognition
-![image.png](https://github.com/vivekpatel99/German_Traffic_Sign_Recognition/blob/master/results/result.png)
+![image.png](https://github.com/vivekpatel99/German_Traffic_Sign_Recognition/blob/main/results/result.png)
 ## About Dataset  
 ### Context 
 The [German Traffic Sign Benchmark](https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign?datasetId=82373)
