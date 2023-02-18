@@ -13,3 +13,7 @@ The [German Traffic Sign Benchmark](https://www.kaggle.com/datasets/meowmeowmeow
 INI Benchmark Website
 
 ## HowTo
+### HowTo use the script 
+Create a virtual environment for python either using anaconda or venv
+install requirements.txt file using pip install -r requirements.txt command
+run the jupyter notebooks 
